@@ -1,0 +1,26 @@
+# ARTS Porto E1/E2 experiment configuration
+# Run parameters correspond to the command-line options of scripts/run_e1.py and scripts/run_e2.py.
+project: ARTS
+dataset: Porto
+experiments: [E1, E2]
+python: '3.10+'
+paths:
+  data_dir: data/porto
+  e1_dir: outputs/e1/porto
+  e2_dir: outputs/e2/porto
+  e2_reference: data/porto/e2_reference.npz
+methods: [SP, Lib-Uniform, Static-Best, Static-Mix, ARTS]
+experiment:
+  seeds: [42, 43, 44, 45, 46]
+  expected_n: 9968
+  max_detour: 3.0
+  refine_rounds: 100
+  eta: 1.0e-15
+  min_length_e2: 1
+route_library:
+  candidate_limit: 10
+  diversity_threshold: 0.8
+statistics:
+  types: [Region, Scale, Flow]
+  weighting: equal
+  delta: 1.0e-12
